@@ -11,3 +11,4 @@ export class TagItem {
   @Field(() => GraphQLJSON)
   value: TagValue;
 }
+

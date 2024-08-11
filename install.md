@@ -26,8 +26,13 @@
 
     npm i date-fns
 
+    npm i zod
+
     # implementar SWC
 
     npm i --save-dev @swc/cli @swc/core
     npm i --save-dev jest @swc/core @swc/jest
+
+
+
 ```
