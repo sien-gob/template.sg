@@ -9,9 +9,11 @@ export class Exception extends Error implements IException {
   constructor(paramOrErrors: ErrorData | z.ZodError) {
     if (paramOrErrors instanceof z.ZodError) {
       super('Error en propiedades');
+      this.params = [];
       this.params = this.zodMapper(paramOrErrors);
     } else {
       super(paramOrErrors.message);
+      this.params = [];
       this.params.push(paramOrErrors);
     }
     this.name = 'Exception';
