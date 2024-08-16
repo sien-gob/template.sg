@@ -1,4 +1,4 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { Field, InputType, Int } from '@nestjs/graphql';
 
 @InputType('AuditInput')
 export class AuditInput {
@@ -11,4 +11,7 @@ export class AuditInput {
   createdBy: string;
   @Field()
   modifiedBy: string;
+
+  @Field(()=> Int)
+  version: number
 }
