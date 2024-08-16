@@ -11,7 +11,4 @@ export class AuditInput {
   createdBy: string;
   @Field()
   modifiedBy: string;
-
-  @Field(()=> Int)
-  version: number
 }
