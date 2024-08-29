@@ -1,8 +1,9 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { Field, InputType, ObjectType } from '@nestjs/graphql';
 
+@ObjectType('ClientScope')
 @InputType('ClientScopeInput')
-export class ClientScopeInput {
-  constructor(data?: ClientScopeInput) {
+export class ClientScope {
+  constructor(data?: ClientScope) {
     if (data) {
       Object.assign(this, data);
     }
@@ -12,7 +13,7 @@ export class ClientScopeInput {
   clientId: string;
 
   @Field()
-  appId: string;
+  appId: string = 'core';
 
   //@Field(() => GraphQLJSON, { nullable: true })
   properties?: {

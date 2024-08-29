@@ -1,9 +1,9 @@
-import { AuditInput } from '../audits/audit';
-import { ClientScopeInput } from '../clients/clientScope';
+import { Audit } from '../audits/audit';
+import { ClientScope } from '../clients/clientScope';
 
 export abstract class RelDto<ID, P> {
-  scope: ClientScopeInput;
-  audit: AuditInput;
+  scope: ClientScope;
+  audit: Audit;
 
   relId: ID;
   properties?: P;

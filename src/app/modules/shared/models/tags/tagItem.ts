@@ -1,9 +1,10 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { Field, InputType, ObjectType } from '@nestjs/graphql';
 import GraphQLJSON from 'graphql-type-json';
 
 type TagValue = string | number | boolean | Record<string, any>;
 
-@InputType('TagItem')
+@ObjectType('TagItem')
+@InputType('TagItemInput')
 export class TagItem {
   @Field()
   key: string;
@@ -11,4 +12,3 @@ export class TagItem {
   @Field(() => GraphQLJSON)
   value: TagValue;
 }
-

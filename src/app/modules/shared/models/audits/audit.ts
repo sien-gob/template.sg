@@ -1,7 +1,8 @@
-import { Field, InputType, Int } from '@nestjs/graphql';
+import { Field, InputType, ObjectType } from '@nestjs/graphql';
 
+@ObjectType('Audit')
 @InputType('AuditInput')
-export class AuditInput {
+export class Audit {
   @Field()
   createdAt: string;
   @Field()
@@ -11,4 +12,9 @@ export class AuditInput {
   createdBy: string;
   @Field()
   modifiedBy: string;
+
+  @Field()
+  createdOrigin: string;
+  @Field()
+  modifiedOrigin: string;
 }
