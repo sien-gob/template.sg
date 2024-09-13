@@ -1,9 +1,10 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { Field, InputType, ObjectType } from '@nestjs/graphql';
 import GraphQLJSON from 'graphql-type-json';
 
-@InputType('CatalogInput')
-export class CatalogInput {
-  constructor(data?: Partial<CatalogInput>) {
+@ObjectType('CatalogRel')
+@InputType('CatalogRelInput')
+export class CatalogRel {
+  constructor(data?: Partial<CatalogRel>) {
     if (data) {
       Object.assign(this, data);
     }
