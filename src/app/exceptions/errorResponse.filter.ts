@@ -27,7 +27,7 @@ export class ErrorResponseFilter implements ExceptionFilter {
     if (isGraphQL) {
       return {
         status: 'error',
-        data: [],
+        data: null,
         errors: errs,
       };
     } else {
