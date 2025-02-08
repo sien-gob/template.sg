@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { PoolClient, QueryResult } from 'pg';
+import { PoolClient } from 'pg';
 import { connectPg } from 'src/system/configs';
-import { DatabaseException } from '../domain/exceptions';
-
-export type QueryExecutor = (client: PoolClient) => Promise<QueryResult>;
-export type FnTransaction<T> = (client: PoolClient) => Promise<T>;
+import { DatabaseException } from '../../../domain/exceptions';
 
 @Injectable()
 export abstract class BasePgRepository {
@@ -28,8 +25,8 @@ export abstract class BasePgRepository {
     if (!this.client) {
       clientPg = await connectPg.connect();
       temporaryClient = true;
-    } else  {
-      clientPg = this.client
+    } else {
+      clientPg = this.client;
     }
 
     try {

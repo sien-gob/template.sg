@@ -1,7 +1,7 @@
 import { Pool, PoolClient } from 'pg';
-import { IUnitOfWorkPort } from '../domain/ports';
+import { IUnitOfWorkPort } from '../../../domain/ports';
 import { connectPg } from 'src/system/configs';
-import { DatabaseException } from '../domain/exceptions';
+import { DatabaseException } from '../../../domain/exceptions';
 
 export class PgUnitOfWorkAdapter implements IUnitOfWorkPort {
   private pool: Pool;

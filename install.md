@@ -33,6 +33,23 @@
     npm i --save-dev @swc/cli @swc/core
     npm i --save-dev jest @swc/core @swc/jest
 
+    npm i --save @nestjs/axios axios
+
+    npm i bull redis
+    npm install @nestjs/bull bull socket.io
+    npm i --save @nestjs/websockets @nestjs/platform-socket.io
+    npm install msgpackr
+    npm install csv-stringify
+    npm i --save @nestjs/event-emitter
+    npm i sqlite sqlite3
+    npm install --save @nestjs/serve-static
+    npm i nodemailer
+     npm i exceljs mssql
+
+
+   rm -rf node_modules package-lock.json
+   npm cache clean --force
+   npm install
 
 
 ```
