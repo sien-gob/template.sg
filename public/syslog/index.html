@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Log Viewer</title>
+  </head>
+  <body>
+    <div class="log-viewer">
+      <div class="log-viewer__header">
+        <h1>Log Viewer</h1>
+      </div>
+
+      <div class="log-viewer__controls">
+        <div class="log-viewer__input-container">
+          <textarea
+            id="filterInput"
+            class="log-viewer__filter-input"
+            placeholder='Ingrese filtro JSON (ej: 
+                { 
+                  "filter": {
+                    "OR": [
+                      {
+                        "AND": [
+                          { "level": 1 }
+                        ]
+                      },
+                      {
+                        "AND": [
+                          { "level": "ERROR" },
+                          { "message": { "operator": "LIKE", "value": "%Proceso%"} }
+                        ]
+                      }
+                    ]
+                  }
+                }
+            )'
+          ></textarea>
+        </div>
+        <div class="log-viewer__buttons">
+          <button id="searchBtn" class="log-viewer__btn log-viewer__btn--primary">Consultar</button>
+          <button id="clearBtn" class="log-viewer__btn log-viewer__btn--danger">Limpiar</button>
+        </div>
+      </div>
+
+      <div class="log-viewer__table-container">
+        <table id="logsTable" class="log-viewer__table">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>level</th>
+              <th>source</th>
+              <th>message</th>
+              <th>metadata</th>
+              <th>created_at</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="notification" class="log-viewer__notification"></div>
+
+ 
+    <script src="js/syslog.js"></script> 
+  </body>
+</html>
