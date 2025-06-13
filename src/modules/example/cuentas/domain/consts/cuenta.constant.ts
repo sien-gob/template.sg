@@ -1,0 +1,2 @@
+export const CUENTA_VALIDATORS = Symbol('CUENTA_VALIDATORS');
+

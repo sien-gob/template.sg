@@ -1,0 +1,65 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ErrorData {
+  code: String!
+  path: String!
+  message: String!
+}
+
+type Version {
+  type: String!
+  ver: String!
+  info: JSON!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+type VersionResponse {
+  status: String!
+  errors: [ErrorData!]
+  data: [Version!]
+}
+
+type CuentaDto {
+  id: String!
+  codigo: String!
+  nombre: String!
+  descripcion: String!
+}
+
+type CuentaResponse {
+  status: String!
+  errors: [ErrorData!]
+  data: CuentaDto
+}
+
+type Query {
+  getVersion: VersionResponse
+  getCuentaByCodigo(inputs: GetCuentaByCodigoInput!): CuentaResponse!
+}
+
+input GetCuentaByCodigoInput {
+  codigo: String!
+}
+
+type Mutation {
+  createCuenta(inputs: CreateCuentaDto!): CuentaResponse!
+  updateCuenta(codigo: String!, inputs: UpdateCuentaDto!): CuentaResponse!
+}
+
+input CreateCuentaDto {
+  id: String!
+  codigo: String!
+  nombre: String!
+  descripcion: String!
+}
+
+input UpdateCuentaDto {
+  nombre: String!
+  descripcion: String!
+}

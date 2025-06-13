@@ -1,0 +1,776 @@
+.settings-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.sidebar {
+  padding: 1rem 0;
+  border-right: 1px solid var(--border-color);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.sidebar li.active {
+  background-color: var(--primary-color);
+}
+
+.content {
+  padding: 2rem;
+}
+
+.settings-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.settings-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.settings-form input,
+.settings-form select,
+.settings-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-color);
+}
+
+.help-text {
+  margin-top: 0.5rem;
+  color: #8b949e;
+  font-size: 0.875rem;
+}
+
+.primary-button {
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.link-button {
+  background-color: #3b5998;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tab-section {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sidebar li {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar li.active {
+  background-color: var(--primary-color);
+  border-left-color: var(--button-color);
+  font-weight: 500;
+}
+
+.settings-subtitle {
+  font-size: 1rem;
+  margin: 1.5rem 0 1rem;
+  color: var(--text-color);
+}
+
+.checkbox-group {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.checkbox-group:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.checkbox-label input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  accent-color: var(--button-color);
+}
+
+.checkbox-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.checkbox-text strong {
+  color: var(--text-color);
+}
+
+.checkbox-text .help-text {
+  margin: 0;
+}
+
+/* Card Task */
+
+.tasks-container {
+  margin-top: 2rem;
+}
+
+.task-card {
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.task-card.disabled {
+  opacity: 0.7;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.task-id {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.task-action-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.25rem;
+  opacity: 0.7;
+}
+
+.task-action-btn:hover {
+  opacity: 1;
+}
+
+.task-details {
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+.task-schedule {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* ***********  */
+
+/* Contenedor principal del formulario */
+.form-group {
+  margin-bottom: 0.3rem;
+}
+
+/* Estilo base para labels */
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Contenedor flexible para inputs múltiples */
+.input-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Contenedor individual para cada input */
+.input-group {
+  flex: 1;
+  min-width: 200px; /* Asegura que los inputs no sean demasiado estrechos */
+  padding: 3px;
+}
+
+/* Estilo para los inputs */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--button-color);
+  box-shadow: 0 0 0 3px rgba(35, 134, 54, 0.2); /* Color verde semi-transparente */
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+/* Texto de ayuda debajo de los inputs */
+.help-text {
+  margin-top: 0.5rem;
+  color: #8b949e;
+  font-size: 0.875rem;
+}
+
+/* Para inputs que deban ocupar todo el ancho */
+.input-full {
+  flex: 0 0 100%;
+}
+
+/* Para inputs que deban ocupar la mitad del espacio */
+.input-half {
+  flex: 0 0 calc(50% - 0.5rem);
+}
+
+/* Para inputs que deban ocupar un tercio del espacio */
+.input-third {
+  flex: 0 0 calc(33.333% - 0.667rem);
+  padding: 3px;
+}
+
+.input-code {
+  flex: 1;
+  max-width: 100px;
+  min-width: 100px;
+  padding: 3px;
+}
+
+/* Responsive: en pantallas pequeñas, los inputs ocupan el ancho completo */
+@media (max-width: 768px) {
+  .input-group {
+    flex: 0 0 100%;
+  }
+}
+
+/* Logs */
+
+.logs-container {
+  margin-top: 2rem;
+}
+
+.log-card {
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.log-card.disabled {
+  opacity: 0.7;
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.log-id {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.log-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.log-action-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.25rem;
+  opacity: 0.7;
+}
+
+.log-action-btn:hover {
+  opacity: 1;
+}
+
+.log-details {
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+.log-message {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.log-metadata {
+  color: #4285f4;
+}
+
+.log-label {
+  font-weight: 600;
+  color: white;
+}
+
+/*  apis  */
+
+.apis-container {
+  margin-top: 2rem;
+}
+
+.api-card {
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.api-card.disabled {
+  opacity: 0.7;
+}
+
+.api-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.api-id {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.api-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.api-action-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.25rem;
+  opacity: 0.7;
+}
+
+.api-action-btn:hover {
+  opacity: 1;
+}
+
+.api-details {
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+.api-message {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.api-metadata {
+  color: #4285f4;
+}
+
+.api-label {
+  font-weight: 600;
+  color: white;
+}
+
+/*  connectionDb   */
+
+.connections-container {
+  margin-top: 2rem;
+}
+
+.connection-card {
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.connection-card.disabled {
+  opacity: 0.7;
+}
+
+.connection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.connection-id {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.connection-context {
+  font-weight: 600;
+  color: var(--text-context);
+}
+
+.connectdb-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.connection-action-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.25rem;
+  opacity: 0.7;
+}
+
+.connection-action-btn:hover {
+  opacity: 1;
+}
+
+.connection-details {
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+.connection-message {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.connection-metadata {
+  color: #4285f4;
+}
+
+.connection-label {
+  font-weight: 600;
+  color: white;
+}
+
+.tags-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p {
+  margin: 0; /* Elimina cualquier margen predeterminado de los párrafos para evitar espacios adicionales */
+}
+
+/* tutoriales */
+
+.tutorials-container {
+  margin-top: 2rem;
+}
+
+.tutorial-card {
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 3rem; /* Aumentado de 1rem a 1.5rem para más separación vertical */
+  position: relative;
+}
+
+.tutorial-card.disabled {
+  opacity: 0.7;
+}
+
+.tutorial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.tutorial-id {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.tutorial-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tutorial-action-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.25rem;
+  opacity: 0.7;
+}
+
+.tutorial-action-btn:hover {
+  opacity: 1;
+}
+
+.tutorial-details {
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+.tutorial-message {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.tutorial-metadata {
+  color: #4285f4;
+}
+
+.tutorial-label {
+  font-weight: 600;
+  color: white;
+}
+
+.tutorial-url {
+  margin-top: 8px;
+  margin-bottom: 5px;
+  color: #4285f4;
+  font-size: 6;
+}
+
+/* Nuevos estilos para la imagen de thumbnail y componentes relacionados */
+.tutorial-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tutorial-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.tutorial-card:hover .tutorial-thumbnail img {
+  transform: scale(1.05);
+}
+
+.tutorial-modulo {
+  font-size: 0.85rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+.play-tutorial {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 2px solid white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tutorial-card:hover .play-tutorial {
+  opacity: 1;
+}
+
+.tutorial-description {
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Estilos para el modal de video */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.video-modal-content {
+  background-color: var(--primary-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+}
+
+.close-video {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.close-video:hover {
+  opacity: 1;
+}
+
+.video-modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-right: 30px;
+}
+
+.video-modal-content video {
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  #tutorialsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem; /* Espacio adicional al final del grid */
+  }
+
+  .tutorial-card {
+    margin-bottom: 0; /* Eliminamos el margin-bottom porque el gap del grid lo maneja */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Aseguramos que la última fila tenga un margen inferior */
+  #tutorialsList::after {
+    content: '';
+    margin-bottom: 2rem;
+  }
+}

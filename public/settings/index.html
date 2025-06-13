@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel Preferencia y Ajustes</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/form.css" />
+    <link rel="stylesheet" href="styles/terminal.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Panel de preferencias y ajustes</h1>
+      <p class="subtitle">Administra configuraciones, preferencias, logs y mas.</p>
+
+      <div class="settings-container">
+        <nav class="sidebar">
+          <p class="app-label-sidebar">template.sg</p>
+          <ul id="tabList">
+            <!-- Los tabs se generarán dinámicamente -->
+          </ul>
+        </nav>
+
+        
+
+        <main class="content" id="tabContent">
+          <!-- El contenido de los tabs se generará dinámicamente -->
+        </main>
+      </div>
+    </div>
+    <div id="notification" class="log-viewer__notification"></div>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="app-name">TEMPLATE.SG</div>
+        <div class="app-description">
+          Panel Administrativo exclusivo para el equipo de soporte técnico que permite configurar y ajustar parámetros del sistema backend, así como visualizar
+          y analizar los logs de la aplicación en tiempo real.
+        </div>
+        <div class="app-version">Versión 1.0.0</div>
+      </div>
+    </footer>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

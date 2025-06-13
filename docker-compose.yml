@@ -1,0 +1,36 @@
+services:
+  redis:
+    container_name: redis-core-sg
+    image: redis:8.0.2-alpine
+    #restart: always
+    ports:
+      - '6381:6381'
+    volumes:
+      - c:/redis/core/rddata:/rddata
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - core-network-sg
+    command:
+      - --loglevel warning
+      - --port 6381
+      - --maxmemory 2gb
+      - --maxmemory-policy noeviction
+      - --save 60 1 # Guarda cada 60 segundos si al menos 1 cambio
+      - --appendonly yes # Habilita persistencia AOF
+  redisinsight:
+    container_name: redisinsight-core-sg
+    image: redis/redisinsight:latest
+    ports:
+      - '5540:5540' # Exponemos el puerto de la UI web
+    networks:
+      - core-network-sg
+    restart: unless-stopped
+networks:
+  core-network-sg:
+    name: core-network-sg
+    external: true
+    driver: bridge
