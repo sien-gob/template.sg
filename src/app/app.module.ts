@@ -11,7 +11,6 @@ import { CuentaModule } from 'src/modules/example/cuentas/cuenta.module';
 import { RequestModule } from './modules/requests/request.module';
 import { UpdaterModule } from './modules/updaters/update.module';
 
-
 @Module({
   imports: [
     AppGraphqlModule,
@@ -25,8 +24,7 @@ import { UpdaterModule } from './modules/updaters/update.module';
     UpdaterModule,
   ],
   controllers: [],
-  providers: [
-  ],
+  providers: [],
   exports: [],
 })
 export class AppModule implements OnModuleInit {
