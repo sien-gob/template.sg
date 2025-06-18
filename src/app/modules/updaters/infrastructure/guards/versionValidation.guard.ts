@@ -47,7 +47,7 @@ export class VersionValidationGuard implements CanActivate {
       return false;
     }
 
-    this.logger.debug(`Versiones correctas: app: ${versionInfo?.app?.codigo} db: ${versionInfo?.db?.codigo}`);
+    //this.logger.debug(`Versiones correctas: app: ${versionInfo?.app?.codigo} db: ${versionInfo?.db?.codigo}`);
     return true;
   }
 

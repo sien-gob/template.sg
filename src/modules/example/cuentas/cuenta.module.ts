@@ -24,9 +24,6 @@ import { CuentaBusinessValidator, CuentaCodigoUnicoRule, CuentaNombreLargoRule, 
       useClass: UpdateCuentaMemoryAdapter,
     },
 
-    
-
-    
     GetCuentaByCodigoService,
     CreateCuentaService,
     UpdateCuentaService,

@@ -6,6 +6,7 @@ import { Permissions } from 'src/app/modules/access/infrastructure/decorators';
 import { CuentaActions, CuentaResources } from '../../domain/access';
 import { AuthenticationGuard, AuthorizationGuard } from 'src/app/modules/access/infrastructure/guards';
 import { RequestContextService } from 'src/app/modules/requests/services';
+import { JwtPayloadAccess } from 'src/app/modules/access/domain/payloads';
 
 @UseGuards(AuthenticationGuard, AuthorizationGuard)
 @Controller('cuentas')
@@ -22,7 +23,7 @@ export class CreateCuentaController {
     const requestId = this.requestContext.getRequestId();
     //console.log('createCuenta.controller :: ', requestId);
 
-    const access = this.requestContext.getAccess();
+    const access: JwtPayloadAccess | undefined = this.requestContext.getAccess();
     //console.log('createCuenta.controller :: ', access);
 
     return await this.createService.run(input);

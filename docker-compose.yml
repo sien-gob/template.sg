@@ -6,7 +6,7 @@ services:
     ports:
       - '6381:6381'
     volumes:
-      - c:/redis/core/rddata:/rddata
+      - c:/redis/core/rddata:/data
     healthcheck:
       test: ['CMD', 'redis-cli', 'ping']
       interval: 30s
@@ -17,6 +17,7 @@ services:
     command:
       - --loglevel warning
       - --port 6381
+      - --bind 0.0.0.0
       - --maxmemory 2gb
       - --maxmemory-policy noeviction
       - --save 60 1 # Guarda cada 60 segundos si al menos 1 cambio
@@ -32,5 +33,5 @@ services:
 networks:
   core-network-sg:
     name: core-network-sg
-    external: true
+    #external: true
     driver: bridge

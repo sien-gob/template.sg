@@ -7,10 +7,7 @@ import { JwtPayloadAccess } from '../../access/domain/payloads';
 export class RequestContextService {
   constructor(
     @Inject(REQUEST)
-    private readonly request: Request & {
-      context?: JwtPayloadAccess;
-      requestId?: string;
-    },
+    private readonly request: Request & { context?: JwtPayloadAccess; requestId?: string },
   ) {}
 
   getAccess(): JwtPayloadAccess | undefined {
